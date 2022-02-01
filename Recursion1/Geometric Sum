@@ -1,0 +1,23 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+#include "solution.h"
+using namespace std;
+
+double geometricSum(int k) {
+    
+    
+    if(k==0)
+        return 1;
+    double smallcal=geometricSum(k-1);
+    double ans=smallcal+(1.0/pow(2,k));
+    return ans;
+}
+
+
+int main() {
+    int k;
+    cin >> k;
+    cout << fixed << setprecision(5);
+    cout << geometricSum(k) << endl;   
+}
