@@ -1,0 +1,38 @@
+i/p:aaaa
+o/p:a*a*a*a
+
+
+i/p:hello
+o/p:hel*lo
+
+
+
+#include <iostream>
+#include "solution.h"
+using namespace std;
+
+void pairStar(char input[]) {
+    
+    if(strlen(input)==1)
+        return;
+    
+    if(input[0]==input[1])
+    {
+        for(int i=strlen(input);i>=1;i--)
+        {
+            input[i+1]=input[i];
+        }
+        input[1]='*';
+        return pairStar(input+2);
+    }
+    else
+        return pairStar(input+1);
+
+}
+
+int main() {
+   char input[100];
+   cin.getline(input, 100);
+   pairStar(input);
+   cout << input << endl;
+}
