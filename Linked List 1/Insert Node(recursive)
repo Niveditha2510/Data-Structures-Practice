@@ -50,12 +50,12 @@ Node* insertNode(Node *head, int i, int data) {
     }
     else if(i == 0){
         Node* newNode = new Node(data);
-		newNode->next = head;
+	newNode->next = head;
         head = newNode;
         return head;
     }
     else{
-		Node* newHead = insertNode(head->next, i-1, data);
+	Node* newHead = insertNode(head->next, i-1, data);
         head->next = newHead;
         return head;
     }
