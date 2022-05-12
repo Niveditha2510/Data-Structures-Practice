@@ -1,0 +1,47 @@
+
+int removeMin()
+
+{
+    if(isEmpty())
+    {
+        return 0; //pq is empty
+    }
+    
+    int ans=pq[0];
+    pq[0]=pq[pq.size()-1]; //swap root element with last element and remove last
+    pq.pop_back();
+    
+    //down-heapify
+    int parentIndex=0;
+    int leftchildIndex=2*parentIndex+1;
+    int rightchildIndex=2*parentIndex+2;
+    
+    while(left<pq.size())
+    {
+       int minIndex=parentIndex;
+       if(pq[minIndex]>pq[leftchildIndex])
+        {
+           minIndex=leftchildIndex;
+        }
+        if(rightchildIndex>pq.size() && pq[minIndex]>pq[rightchildIndex])
+        {
+             minIndex=rightchildIndex;
+        }
+        if(minIndex==parentIndex)
+        {
+           break;
+        }
+        int temp=pq[minIndex];
+        pq[minIndex]=pq[parentIndex];
+        pq[parentIndex]=temp;
+        
+        parentIndex=minIndex;
+        leftchildIndex=2*parentIndex+1;
+        rightchildIndex=2*parentIndex+2;
+        
+    }
+    return ans;
+ }
+ 
+ Time Complexity: O(nlogn)
+ Space Complexity: O(n)
