@@ -90,21 +90,23 @@ class PriorityQueue {
        
             	if( pq[i]> min(pq[2*i+1],pq[2*i+2]))
        
-          	  {    //storing idex of smallest children
+          	  {    
+                    //storing idex of smallest children
           		   	if(pq[2*i+1]>pq[2*i+2])
-                    {int temp = pq[i];
-            		pq[i] =pq[2*i+2];
-           			pq[2*i+2]= temp;
-                        i=2*i+2;
+                    {
+                        int temp = pq[i];
+            		     pq[i] =pq[2*i+2];
+           			     pq[2*i+2]= temp;
+                         i=2*i+2;
                     }
                         
             	    else 
                     {
             	 
-             	   int temp = pq[i];
-            		pq[i] =pq[2*i+1];
-           			 pq[2*i+1]= temp;
-           			i=2*i+1;
+             	      int temp = pq[i];
+            		   pq[i] =pq[2*i+1];
+           			   pq[2*i+1]= temp;
+           			   i=2*i+1;
                         
                    
                  	}
